@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://olympic.dakar.com/soap/olympic-management"
+           targetNamespace="http://olympic.dakar.com/soap/olympic-management"
+           elementFormDefault="qualified">
+
+    <!-- =====================================================================
+         Types partagés
+         ===================================================================== -->
+
+    <xs:simpleType name="genderType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MALE"/>
+            <xs:enumeration value="FEMALE"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="medalType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GOLD"/>
+            <xs:enumeration value="SILVER"/>
+            <xs:enumeration value="BRONZE"/>
+            <xs:enumeration value="NONE"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="athleteType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="gender" type="tns:genderType"/>
+            <xs:element name="dateOfBirth" type="xs:date"/>
+            <xs:element name="nationality" type="xs:string"/>
+            <xs:element name="disciplineId" type="xs:long"/>
+            <xs:element name="disciplineName" type="xs:string"/>
+            <xs:element name="height" type="xs:int"/>
+            <xs:element name="weight" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="resultType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="eventId" type="xs:long"/>
+            <xs:element name="eventName" type="xs:string"/>
+            <xs:element name="athleteId" type="xs:long"/>
+            <xs:element name="athleteFirstName" type="xs:string"/>
+            <xs:element name="athleteLastName" type="xs:string"/>
+            <xs:element name="position" type="xs:int"/>
+            <xs:element name="time" type="xs:string" minOccurs="0"/>
+            <xs:element name="score" type="xs:double" minOccurs="0"/>
+            <xs:element name="medal" type="tns:medalType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- =====================================================================
+         Opération : consulter un athlète
+         ===================================================================== -->
+
+    <xs:element name="getAthleteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="athleteId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAthleteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="athlete" type="tns:athleteType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- =====================================================================
+         Opération : résultats d'un athlète
+         ===================================================================== -->
+
+    <xs:element name="getAthleteResultsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="athleteId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAthleteResultsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="result" type="tns:resultType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- =====================================================================
+         Opération : résultats d'une épreuve
+         ===================================================================== -->
+
+    <xs:element name="getEventResultsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="eventId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getEventResultsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="result" type="tns:resultType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- =====================================================================
+         Opération : historique des médailles d'une nation
+         ===================================================================== -->
+
+    <xs:element name="getNationMedalHistoryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nationality" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getNationMedalHistoryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="result" type="tns:resultType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
