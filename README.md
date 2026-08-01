@@ -2,8 +2,6 @@
 
 Plateforme de gestion des Jeux Olympiques de Dakar — API REST + Web Service SOAP pour la gestion des athlètes, disciplines, épreuves, résultats, médailles et statistiques.
 
-> Analyse complète du sujet, entités, règles métier et plan de développement : voir [`docs/ANALYSIS.md`](docs/ANALYSIS.md).
-
 ## Stack technique
 
 **Backend** (`backend/`)
@@ -101,7 +99,7 @@ Détails, exemples de requêtes/réponses XML testés en réel (SoapUI/Postman) 
 curl http://localhost:8080/ws/olympic-management.wsdl
 ```
 
-Ou importer directement l'URL du WSDL dans SoapUI (génère les requêtes automatiquement), ou utiliser les exemples XML prêts à l'emploi dans [`docs/SOAP_EXAMPLES.md`](docs/SOAP_EXAMPLES.md) avec Postman (POST vers `/ws`, `Content-Type: text/xml`).
+Ou importer directement l'URL du WSDL dans SoapUI (génère les requêtes automatiquement), ou utiliser les exemples XML prêts à l'emploi avec Postman (POST vers `/ws`, `Content-Type: text/xml`).
 
 ## Tests
 
