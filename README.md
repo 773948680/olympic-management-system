@@ -1,8 +1,15 @@
 # Olympic Management System
 
-Plateforme de gestion des Jeux Olympiques de Dakar — API REST + Web Service SOAP pour la gestion des athlètes, disciplines, épreuves, résultats, médailles et statistiques.
+Plateforme de gestion des Jeux Olympiques de Dakar — API REST + Web Service SOAP + frontend web pour la gestion des athlètes, disciplines, épreuves, résultats, médailles et statistiques.
 
 > Analyse complète du sujet, entités, règles métier et plan de développement : voir [`docs/ANALYSIS.md`](docs/ANALYSIS.md).
+> Spécifications complètes du système livré : voir [`docs/CAHIER_DES_CHARGES.md`](docs/CAHIER_DES_CHARGES.md).
+
+## Aperçu
+
+| Dashboard | Statistiques |
+|---|---|
+| ![Dashboard](docs/screenshots/dashboard.png) | ![Statistiques](docs/screenshots/statistics.png) |
 
 ## Stack technique
 
@@ -124,6 +131,7 @@ Identifiants de connexion configurables via variables d'environnement (`.env`, v
 
 - ✅ Backend REST complet (Athlètes, Disciplines, Épreuves, Résultats, Médailles, Dashboard)
 - ✅ Web Service SOAP (consultation)
-- ✅ Base de données (schéma + Docker Compose)
-- ⏳ Frontend (React/Vite) — à venir
+- ✅ Authentification JWT (backend + frontend)
+- ✅ Frontend (React/Vite) — dashboard, CRUD complet sur toutes les ressources, statistiques
+- ✅ Base de données (schéma + Docker Compose : MySQL, phpMyAdmin, backend, frontend)
 - ⏳ Collection Postman consolidée — à venir
