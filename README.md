@@ -85,7 +85,7 @@ Le sujet impose deux types de consommateurs : des applications REST, et **un sys
 | `getEventResults` | Résultats d'une épreuve |
 | `getNationMedalHistory` | Historique des médailles d'une nation |
 
-Détails, exemples de requêtes/réponses XML testés en réel (SoapUI/Postman) : voir [`docs/SOAP_EXAMPLES.md`](docs/SOAP_EXAMPLES.md).
+Détails, exemples de requêtes/réponses XML testés en réel (SoapUI/Postman)
 
 ### Choix d'implémentation
 
